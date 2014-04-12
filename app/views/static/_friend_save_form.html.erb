@@ -1,0 +1,15 @@
+
+<%= friend["first_name"] + ' ' + friend["last_name"] + ' ' + friend["gender"]%><br>
+
+<%= form_for @friend, remote: true do |f| %>
+  <%= f.hidden_field :first_name, :value => friend["first_name"] %>
+  <%= f.hidden_field :last_name, :value => friend["last_name"] %>
+  <%= f.hidden_field :gender, :value => friend["gender"] %>
+  <%= f.hidden_field :fbid, :value => friend["id"] %>
+  <%= f.hidden_field :avatar_url, :value => friend["avatar_url"] %>
+  <% if Friend.find_by_fbid(friend["id"]) %>
+    <%= f.submit "saved !", :class => "friend_saved" %>
+  <% else %>
+    <%= f.submit "save" %>
+  <% end %>  
+<% end %>
