@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def default_user
-    params[:user_id] == nil || params[:user_token] == nil || params[:user_token] == "" || params[:user_id] == ""
+    params[:user_token] == nil || params[:user_token] == ""
   end
 
   def gender_unspecified?(gender)
